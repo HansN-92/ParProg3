@@ -1,0 +1,34 @@
+﻿namespace Pokemon
+{
+    internal class WildEncounter
+    {
+        private readonly Random _rng = new();
+
+        private readonly Dictionary<string, List<Pokemon>> _terrainPokemon = new()
+        {
+            ["grass"] = new List<Pokemon>
+        {
+            new("Bulbasaur", "grass", 45, 12, 8,  new List<Move> { new("Vine Whip", 10, 85), new("Tackle", 6, 95) }),
+            new("Pidgey",    "flying", 40, 10, 6, new List<Move> { new("Gust", 8, 90) }),
+            new("Rattata",   "normal", 35, 11, 5, new List<Move> { new("Scratch", 7, 95) }),
+        },
+            ["water"] = new List<Pokemon>
+        {
+            new("Squirtle",  "water", 44, 11, 10, new List<Move> { new("Water Gun", 10, 85), new("Tackle", 6, 95) }),
+            new("Magikarp",  "water", 20, 4,  4,  new List<Move> { new("Splash", 0, 100) }),
+            new("Tentacool", "water", 40, 9,  7,  new List<Move> { new("Acid", 9, 80) }),
+        }
+        };
+
+        public Pokemon? Roll(string terrain)
+        {
+            if (_rng.Next(100) >= 70) return null;
+
+            if (!_terrainPokemon.TryGetValue(terrain, out var pool)) return null;
+
+            var template = pool[_rng.Next(pool.Count)];
+            return new Pokemon(template.Name, template.Type, template.MaxHp,
+                               template.Attack, template.Defense, template.Moves);
+        }
+    }
+}
