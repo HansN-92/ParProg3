@@ -85,7 +85,7 @@
                 trainer.EarnMoney(reward);
             }
             if (active.IsFainted)
-                Console.WriteLine($"{active.Name} besvimt...");
+                Console.WriteLine($"{active.Name} har besvimt...");
         }
 
         private void PlayerAttacks(Pokemon attacker, Pokemon target)

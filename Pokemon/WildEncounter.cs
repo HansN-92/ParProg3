@@ -8,15 +8,15 @@
         {
             ["grass"] = new List<Pokemon>
         {
-            new("Bulbasaur", "grass", 45, 12, 8,  new List<Move> { new("Vine Whip", 10, 85), new("Tackle", 6, 95) }),
-            new("Pidgey",    "flying", 40, 10, 6, new List<Move> { new("Gust", 8, 90) }),
+            new("Bulbasaur", "gress", 45, 12, 8,  new List<Move> { new("Vine Whip", 10, 85), new("Tackle", 6, 95) }),
+            new("Pidgey",    "flyvende", 40, 10, 6, new List<Move> { new("Gust", 8, 90) }),
             new("Rattata",   "normal", 35, 11, 5, new List<Move> { new("Scratch", 7, 95) }),
         },
             ["water"] = new List<Pokemon>
         {
-            new("Squirtle",  "water", 44, 11, 10, new List<Move> { new("Water Gun", 10, 85), new("Tackle", 6, 95) }),
-            new("Magikarp",  "water", 20, 4,  4,  new List<Move> { new("Splash", 0, 100) }),
-            new("Tentacool", "water", 40, 9,  7,  new List<Move> { new("Acid", 9, 80) }),
+            new("Squirtle",  "vann", 44, 11, 10, new List<Move> { new("Water Gun", 10, 85), new("Tackle", 6, 95) }),
+            new("Magikarp",  "vann", 20, 4,  4,  new List<Move> { new("Splash", 0, 100) }),
+            new("Tentacool", "vann", 40, 9,  7,  new List<Move> { new("Acid", 9, 80) }),
         }
         };
 

@@ -15,7 +15,7 @@
             Inventory.Add(new Item("Pokeball", ItemType.Pokeball, 10));
             Inventory.Add(new Item("Pokeball", ItemType.Pokeball, 10));
             Inventory.Add(new Item("Pokeball", ItemType.Pokeball, 10));
-            Inventory.Add(new Item("Potion", ItemType.Potion, 20));
+            Inventory.Add(new Item("Health potion", ItemType.Potion, 20));
         }
 
         public bool HasUsablePokemon => Party.Any(p => !p.IsFainted);
@@ -45,7 +45,7 @@
         {
             Console.WriteLine($"=== Inventory === (Penger: {Money}$)");
             Console.WriteLine($"  Pokeballs: {CountItem(ItemType.Pokeball)}");
-            Console.WriteLine($"  Potions:   {CountItem(ItemType.Potion)}");
+            Console.WriteLine($"  Health potions:   {CountItem(ItemType.Potion)}");
         }
     }
 }

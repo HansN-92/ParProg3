@@ -5,7 +5,7 @@
         private readonly Dictionary<string, (Item item, int price)> _stock = new()
         {
             ["1"] = (new Item("Pokeball", ItemType.Pokeball, 10), 50),
-            ["2"] = (new Item("Potion", ItemType.Potion, 20), 80),
+            ["2"] = (new Item("Health potion", ItemType.Potion, 20), 80),
         };
 
         public void Visit(Trainer trainer)
@@ -17,7 +17,7 @@
             {
                 Console.WriteLine($"Penger: {trainer.Money}$");
                 Console.WriteLine("1) Pokeball  — 50$");
-                Console.WriteLine("2) Potion    — 80$");
+                Console.WriteLine("2) Health potion    — 80$");
                 Console.WriteLine("Q) Forlat butikken");
                 Console.Write("> ");
 

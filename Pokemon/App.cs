@@ -29,8 +29,8 @@
 
                 switch (Console.ReadLine()?.Trim().ToUpperInvariant())
                 {
-                    case "1": Explore("grass"); break;
-                    case "2": Explore("water"); break;
+                    case "1": Explore("gress"); break;
+                    case "2": Explore("vann"); break;
                     case "3": _shop.Visit(_trainer); break;
                     case "4": _trainer.ShowParty(); break;
                     case "5": _trainer.ShowInventory(); break;
