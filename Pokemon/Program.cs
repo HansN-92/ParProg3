@@ -13,30 +13,27 @@
             Console.WriteLine("3) Squirtle    [vann]");
             Console.Write("> ");
 
-            Pokemon chosenPokemon;
             ConsoleKeyInfo starterChoice = Console.ReadKey(true);
-                switch(starterChoice.Key)
+            Pokemon ? chosenPokemon = starterChoice.Key
+                switch
             {
-                case: ConsoleKey.D1:
-                    chosenPokemon = new Pokemon("Charmander", "flamme", 39, 14, 7,
-                        new List<Move> { new("Ember", 12, 85), new("Scratch", 6, 95) });
-                    break;
+                 ConsoleKey.D1
+                    => new Pokemon("Charmander", "flamme", 39, 14, 7,
+                        new List<Move> { new("Ember", 12, 85), new("Scratch", 6, 95) }),
 
-                case: ConsoleKey.D2:
-                    chosenPokemon => new Pokemon("Bulbasaur", "gress", 45, 12, 8,
-                        new List<Move> { new("Vine Whip", 10, 85), new("Tackle", 6, 95) });
-                    break;
+                 ConsoleKey.D2
+                    => new Pokemon("Bulbasaur", "gress", 45, 12, 8,
+                        new List<Move> { new("Vine Whip", 10, 85), new("Tackle", 6, 95) }),
 
-                case: ConsoleKey.D3:
-                    chosenPokemon => new Pokemon("Squirtle", "vann", 44, 11, 10,
-                        new List<Move> { new("Water Gun", 10, 85), new("Tackle", 6, 95) });
-                    break;
+                 ConsoleKey.D3
+                    => new Pokemon("Squirtle", "vann", 44, 11, 10,
+                        new List<Move> { new("Water Gun", 10, 85), new("Tackle", 6, 95) }),
 
-                   default  _ => null;
+                 _ => null
             };
 
-            Console.WriteLine($"Du valgte {starter.Name}!");
-            new App(new Trainer(name, starter)).Run();
+            Console.WriteLine($"Du valgte {chosenPokemon.Name}!");
+            new App(new Trainer(name, chosenPokemon)).Run();
         }
     }
 }

@@ -6,11 +6,11 @@
 
         public void Start(Trainer trainer, Pokemon wild)
         {
-            Console.WriteLine($"\n  En vill {wild.Name} dukket opp!");
+            Console.WriteLine($"\nEn vill {wild.Name} dukket opp!");
             Pokemon? active = trainer.Party.FirstOrDefault(p => !p.IsFainted);
-            if (active == null) { Console.WriteLine("Du har ingen pokemon som kan kjempe!"); return; }
+            if (active == null) { Console.WriteLine("\nDu har ingen pokemon som kan kjempe!"); return; }
 
-            Console.WriteLine($"Går ut: {active.Name}");
+            Console.WriteLine($"\nGår ut: {active.Name}");
             bool inBattle = true;
 
             while (inBattle && !active.IsFainted && !wild.IsFainted)
@@ -18,7 +18,7 @@
                 Console.WriteLine();
                 active.PrintStatus();
                 wild.PrintStatus();
-                Console.WriteLine("1) Angrip");
+                Console.WriteLine("\n1) Angrip");
                 Console.WriteLine("2) Bruk Potion");
                 Console.WriteLine("3) Kast Pokeball");
                 Console.WriteLine("4) Løp");
@@ -37,10 +37,10 @@
                         if (potion != null)
                         {
                             active.Heal(potion.Value);
-                            Console.WriteLine($"Healet {active.Name} med {potion.Value} HP!");
+                            Console.WriteLine($"\nHealet {active.Name} med {potion.Value} HP!");
                             EnemyAttacks(wild, active);
                         }
-                        else Console.WriteLine("Ingen potions igjen!");
+                        else Console.WriteLine("\nIngen potions igjen!");
                         break;
 
                     case ConsoleKey.D3:
@@ -50,30 +50,30 @@
                             int catchChance = 40 + ball.Value + (100 - wild.Hp * 100 / wild.MaxHp) / 2;
                             if (_rng.Next(100) < catchChance)
                             {
-                                Console.WriteLine($"Du fanget {wild.Name}!");
+                                Console.WriteLine($"\nDu fanget {wild.Name}!");
                                 trainer.Party.Add(wild);
                                 inBattle = false;
                             }
                             else
                             {
-                                Console.WriteLine($"{wild.Name} brøt fri!");
+                                Console.WriteLine($"\n{wild.Name} brøt fri!");
                                 EnemyAttacks(wild, active);
                             }
                         }
-                        else Console.WriteLine("Ingen pokeballs igjen!");
+                        else Console.WriteLine("\nIngen pokeballs igjen!");
                         break;
 
                     case ConsoleKey.D4:
                         if (_rng.Next(100) < 60)
                         {
-                            Console.WriteLine("Du rømte!");
+                            Console.WriteLine("\nDu rømte!");
                             inBattle = false;
                         }
-                        else Console.WriteLine($"{wild.Name} blokkerte flukten!");
+                        else Console.WriteLine($"\n{wild.Name} blokkerte flukten!");
                         break;
 
                     default:
-                        Console.WriteLine("Ugyldig valg.");
+                        Console.WriteLine("\nUgyldig valg.");
                         break;
                 }
             }
@@ -81,11 +81,11 @@
             if (wild.IsFainted)
             {
                 int reward = _rng.Next(20, 60);
-                Console.WriteLine($"{wild.Name} besvimte! Du fikk {reward}$");
+                Console.WriteLine($"\n{wild.Name} besvimte! Du fikk {reward}$");
                 trainer.EarnMoney(reward);
             }
             if (active.IsFainted)
-                Console.WriteLine($"{active.Name} har besvimt...");
+                Console.WriteLine($"\n{active.Name} har besvimt...");
         }
 
         private void PlayerAttacks(Pokemon attacker, Pokemon target)
@@ -97,9 +97,9 @@
             {
                 int dmg = Math.Max(1, attacker.Attack + move.Power - target.Defense);
                 target.TakeDamage(dmg);
-                Console.WriteLine($"{attacker.Name} brukte {move.Name}  {dmg} skade!");
+                Console.WriteLine($"\n{attacker.Name} brukte {move.Name} og gjorde {dmg} skade!");
             }
-            else Console.WriteLine($"{attacker.Name} bommet!");
+            else Console.WriteLine($"\n{attacker.Name} bommet!");
         }
 
         private void EnemyAttacks(Pokemon enemy, Pokemon target)
@@ -108,7 +108,7 @@
             var move = enemy.Moves[new Random().Next(enemy.Moves.Count)];
             int dmg = Math.Max(1, enemy.Attack + move.Power - target.Defense);
             target.TakeDamage(dmg);
-            Console.WriteLine($"{enemy.Name} angriper med {move.Name}  {dmg} skade!");
+            Console.WriteLine($"\n{enemy.Name} angriper med {move.Name} og gjorde {dmg} skade!");
         }
     }
 }

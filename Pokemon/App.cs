@@ -27,14 +27,15 @@
                 Console.WriteLine("Q) Avslutt");
                 Console.Write("> ");
 
-                switch (Console.ReadLine()?.Trim().ToUpperInvariant())
+                ConsoleKeyInfo menuChoice = Console.ReadKey(true);
+                switch (menuChoice.Key)
                 {
-                    case "1": Explore("gress"); break;
-                    case "2": Explore("vann"); break;
-                    case "3": _shop.Visit(_trainer); break;
-                    case "4": _trainer.ShowParty(); break;
-                    case "5": _trainer.ShowInventory(); break;
-                    case "Q": Console.WriteLine("Ha det! "); return;
+                    case ConsoleKey.D1: Explore("gress"); break;
+                    case ConsoleKey.D2: Explore("vann"); break;
+                    case ConsoleKey.D3: _shop.Visit(_trainer); break;
+                    case ConsoleKey.D4: _trainer.ShowParty(); break;
+                    case ConsoleKey.D5: _trainer.ShowInventory(); break;
+                    case ConsoleKey.Q: Console.WriteLine("Ha det! "); return;
                     default: Console.WriteLine("Ugyldig valg."); break;
                 }
             }
@@ -46,7 +47,7 @@
             var wild = _encounter.Roll(terrain);
 
             if (wild == null)
-                Console.WriteLine("Det var stille... ingen pokemon i nærheten.");
+                Console.WriteLine("\nDet var stille... ingen pokemon i nærheten.");
             else
                 _battle.Start(_trainer, wild);
         }

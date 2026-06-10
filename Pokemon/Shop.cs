@@ -21,7 +21,7 @@
                 Console.WriteLine("Q) Forlat butikken");
                 Console.Write("> ");
 
-                string choice = Console.ReadLine()?.Trim().ToUpperInvariant() ?? "";
+                string choice = Console.ReadKey(true).KeyChar.ToString().ToUpperInvariant();
 
                 if (choice == "Q") { shopping = false; break; }
 
